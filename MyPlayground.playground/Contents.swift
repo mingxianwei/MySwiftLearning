@@ -113,6 +113,38 @@ var myHello: String = echo(person: "MING", day: "2017-07-89")
 print(myHello)
 
 
+/** 使用元租来返回多个值*/
+func calculateStatistics(sources: [Int]) ->(min: Int,max: Int,sum: Int,average:Float){
+    //assert()
+    var max = sources[0]
+    var min = sources[0]
+    var sum:Int = 0
+    var  tottal = 0
+    var average: Float = 0
+    
+    
+    
+    
+    for temp in sources {
+        if temp > max {
+            max = temp
+        }
+        if temp < min {
+            min = temp;
+        }
+        
+        sum += temp
+        tottal += 1
+    }
+    average = Float(sum)/Float(tottal)
+    return (min,max,sum,average)
+}
+
+var calculateResult = calculateStatistics(sources: [13,15,12,11,01,123,113])
+print(calculateResult)
+print(calculateResult.max)
+print(calculateResult.average)
+
 
 
 
