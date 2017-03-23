@@ -146,5 +146,55 @@ print(calculateResult.max)
 print(calculateResult.average)
 
 
+/** 函数是第一等类型，这意味着函数可以作为另一个函数的返回值*/
+func makeIncrementer() -> ((Int) -> Int) {
+    var tempValue = 7
+    func addOne(number: Int) -> Int {
+        return 1 + number + tempValue
+    }
+    return addOne
+}
+var increment = makeIncrementer()
+var incrementResult = increment(7)
+print(incrementResult)
+
+
+func hasANyMaches(list:[Int],condiction:((Int) -> Bool)) -> (result:Bool,value:Int?) {
+    for item in list{
+        if condiction(item) {
+            return (true,item)
+        }
+    }
+    return (false,nil)
+}
+
+func isEqualValue(value:Int) -> Bool{
+    if value == 10 {
+        return true
+    } else {
+        return false
+    }
+}
+
+var numbers:[Int] = [20,10,19,18]
+var result = hasANyMaches(list: numbers, condiction: isEqualValue)
+print(result)
+
+
+var numbers1:[Int] = [20,11,19,18]
+var result1 = hasANyMaches(list: numbers1, condiction: isEqualValue)
+print(result1)
+
+//numbers.map({
+//    (number: Int) -> Int in
+//    let result = 3 * number
+//    return result
+//})
+
+let mappedNumbers = numbers.map({ number in  3 * number })
+print(mappedNumbers)
+
+let sortedNumbers = numbers.sort { ($0 > $1) }
+print(sortedNumbers)
 
 
