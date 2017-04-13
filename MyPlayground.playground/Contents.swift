@@ -194,7 +194,14 @@ print(result1)
 let mappedNumbers = numbers.map({ number in  3 * number })
 print(mappedNumbers)
 
-let sortedNumbers = numbers.sort { ($0 > $1) }
+let sortedNumbers = numbers.sorted(by: {
+    ( number1:Int ,number2:Int) -> Bool in
+    return number1 > number2
+})
 print(sortedNumbers)
+
+
+
+
 
 
