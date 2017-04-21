@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85781B191E9F5BA60027D706 /* VideoMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85781B181E9F5BA60027D706 /* VideoMode.swift */; };
 		85AE42A71E7A845B00C6D380 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AE42A61E7A845B00C6D380 /* main.m */; };
-		85AE42AE1E7A84EF00C6D380 /* Hello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AE42AD1E7A84EF00C6D380 /* Hello.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,9 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		85781B181E9F5BA60027D706 /* VideoMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoMode.swift; sourceTree = "<group>"; };
 		85AE42A31E7A845B00C6D380 /* SwiftStart */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftStart; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AE42A61E7A845B00C6D380 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		85AE42AD1E7A84EF00C6D380 /* Hello.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hello.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				85AE42A61E7A845B00C6D380 /* main.m */,
-				85AE42AD1E7A84EF00C6D380 /* Hello.swift */,
+				85781B181E9F5BA60027D706 /* VideoMode.swift */,
 			);
 			path = SwiftStart;
 			sourceTree = "<group>";
@@ -96,7 +96,7 @@
 				TargetAttributes = {
 					85AE42A21E7A845B00C6D380 = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -123,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85AE42AE1E7A84EF00C6D380 /* Hello.swift in Sources */,
+				85781B191E9F5BA60027D706 /* VideoMode.swift in Sources */,
 				85AE42A71E7A845B00C6D380 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +258,7 @@
 				85AE42AC1E7A845B00C6D380 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
