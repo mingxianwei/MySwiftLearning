@@ -56,6 +56,6 @@ var intString = "255a"
 var result:Int! = Int(intString);
 print(result)
 
-
+assert(true, "出现了一个错误")
 
 		
