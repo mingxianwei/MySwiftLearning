@@ -144,8 +144,6 @@ if emptyString.isEmpty && emptyString1.isEmpty {
     
     Swift 默认字符串拷贝的方式 保证了在函数/ 方法中传递的是字符串的值，很明显无论 该值来自哪里，都是您独自拥有的。宁可以确信传递的字符串不会被修改，除非你自己去修改它。
  */
-
-
 // 使用字符
 for charterTmp in defaultColorName.characters {
     print(charterTmp)
@@ -154,9 +152,35 @@ var exclamationMark:Character = "!"
 let catCharacters: [Character] = ["C", "a", "t", "!", "?"]
 let catString:String = String(catCharacters)
 
+//访问和修改字符串
+var greeting = "Guten Tag!"
+print(greeting[greeting.startIndex])
+//在使用startIndex作为字符串下标时一定要确认字符串不能为空  isEmpty
+//print(greeting[greeting.endIndex])  //end index 不能作为字符串的有效下标
+//print(emptyString[emptyString.endIndex])
+print(greeting[greeting.index(before: greeting.endIndex)])
+
+//试图获取越界索引对应的 Character ，将引发一个运行时错误。
+
+//使用characters 的indices 属性会创建一个包含全部索引范围的Range,用来在一个字符串中访问单个字符。
+
+for index in greeting.characters.indices {
+//    print(greeting.characters.indices)
+//    print(greeting[index])
+    print("\(greeting[index])")
+}
+greeting.characters.insert("🐶", at: greeting.endIndex)
+print(greeting)
+
+for var tempCharacter in defaultColorName.characters {
+    greeting.characters.insert(tempCharacter, at: greeting.endIndex)
+}
+print(greeting)
+
+greeting.characters.remove(at: (greeting.characters.index(of: "%") ?? greeting.index(before: greeting.endIndex)))
+print(greeting)
 
 
 
 
 
-		
