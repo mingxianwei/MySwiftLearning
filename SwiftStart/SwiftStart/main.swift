@@ -182,5 +182,53 @@ print(greeting)
 
 
 
+//集合  （数组 Arrays 元组（Sets） 字典（Dictionaryies））
+
+/**
+    编译器会优化 不可变（let）集合类型  尽可能使用不可变类型
+ */
 
 
+// 数组  数组使用一个有序列表存储同一个类型的多个值。相同的值可以多次出现在一个数组的不同位置中。
+
+var someInts = [Int]()
+print(someInts.count)
+someInts.append(3)
+print(someInts.count)
+
+// 创建带有默认值的数组
+var threeInts = Array(repeatElement(0, count: 3))
+print(threeInts)
+
+var anotherThreeDoubles = Array(repeatElement(0.0, count: 3))
+print(anotherThreeDoubles)
+
+var sixElementArray:Array<Int> = threeInts + threeInts
+print(sixElementArray)
+
+// 在数组中 “+”只能用于类型相同的两个东西
+
+threeInts[0] = 1
+anotherThreeDoubles[0] = 1.1
+
+threeInts.insert(5, at: 0)
+print(threeInts)
+
+/** 
+ 
+ 集合（Set）用来存储相同类型且没有确定顺序的值，当集合元素顺序不重要是或希望确保每个元素只出现一次时可以使用集合而不是数组
+ 
+ 一个类型为了存储在集合中，该类型必须是可哈希化的。 相等的对象哈希值必须相同。
+ 
+ 自定义对象作为集合的值类型或者字典的键的类型 该对象必须符合Swift标准库中的Hashable 协议。
+ 
+ 
+ 
+ */
+
+
+
+
+
+
+print("========= end =========")
