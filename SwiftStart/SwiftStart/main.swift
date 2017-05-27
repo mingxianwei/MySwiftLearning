@@ -227,8 +227,25 @@ print(threeInts)
  */
 
 
+// 
+
+let intergThrough = 3
+switch intergThrough {
+case 1 :
+    print("haha")
+case 2 :
+    print("2")
+case 3:
+    print("12")
+    fallthrough
+case 4:
+    print("4")
+default:
+    print("default")
+}
 
 
 
+//在swift 中可以在循环体和条件语句中来创造复杂的控制流结构
 
 print("========= end =========")
