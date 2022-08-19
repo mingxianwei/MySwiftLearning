@@ -10,7 +10,7 @@ import Foundation
 
 var c:Character = "张"
 var b:String = "1bvacd张"
-print(b.characters.count)
+print(b.count)
 
 //字符串拼接
 var str1 = "hello"
@@ -85,7 +85,7 @@ func arithmeticMean(numbers: Double...) -> Double {
 
 // 常量参数和变量参数  变量参数已经被取消    在执行函数时候 需要带上label
 func alignRight(string: String, count: Int, pad: Character) -> String {
-    let amountToPad = count - string.characters.count
+    let amountToPad = count - string.count
     var tempString:String = ""
     for _ in 1...amountToPad {
         tempString = String(pad) + tempString
@@ -145,7 +145,7 @@ if emptyString.isEmpty && emptyString1.isEmpty {
     Swift 默认字符串拷贝的方式 保证了在函数/ 方法中传递的是字符串的值，很明显无论 该值来自哪里，都是您独自拥有的。宁可以确信传递的字符串不会被修改，除非你自己去修改它。
  */
 // 使用字符
-for charterTmp in defaultColorName.characters {
+for charterTmp in defaultColorName {
     print(charterTmp)
 }
 var exclamationMark:Character = "!"
@@ -164,20 +164,20 @@ print(greeting[greeting.index(before: greeting.endIndex)])
 
 //使用characters 的indices 属性会创建一个包含全部索引范围的Range,用来在一个字符串中访问单个字符。
 
-for index in greeting.characters.indices {
+for index in greeting.indices {
 //    print(greeting.characters.indices)
 //    print(greeting[index])
     print("\(greeting[index])")
 }
-greeting.characters.insert("🐶", at: greeting.endIndex)
+greeting.insert("🐶", at: greeting.endIndex)
 print(greeting)
 
-for var tempCharacter in defaultColorName.characters {
-    greeting.characters.insert(tempCharacter, at: greeting.endIndex)
+for var tempCharacter in defaultColorName{
+    greeting.insert(tempCharacter, at: greeting.endIndex)
 }
 print(greeting)
 
-greeting.characters.remove(at: (greeting.characters.index(of: "%") ?? greeting.index(before: greeting.endIndex)))
+greeting.remove(at: (greeting.index(of: "%") ?? greeting.index(before: greeting.endIndex)))
 print(greeting)
 
 
