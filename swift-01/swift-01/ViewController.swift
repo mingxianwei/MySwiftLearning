@@ -117,6 +117,8 @@ class ViewController: UIViewController {
         //
         dicDemo()
         
+        viewDemo()
+        
       let result  = maxOfSum(x: 10, y: 10)
         print(result)
     
@@ -256,12 +258,12 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Target
-    func btnClick(sender: UIButton) {
+    @objc func btnClick(sender: UIButton) {
         print("点击了\(sender)")
     }
 
     // MARK: - Demo
-    func viewDemo () {0
+    func viewDemo () {
         
         //分号用来区分一行中两句或者多句代码
         let a = 10;let b = 20
@@ -279,7 +281,7 @@ class ViewController: UIViewController {
         btn.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         view.addSubview(btn)
         
-        btn.addTarget(self, action: Selector(("btnClick:")) , for: UIControl.Event.touchUpInside)
+        btn.addTarget(self, action:#selector(self.btnClick(sender:)), for: UIControl.Event.touchUpInside)
         
         // let & var 如何选择。 尽量使用let 定义常量let， 只有在需要时候才定义变量var 这样可以简单调试。
         let x = 10 // 定义常量， 一旦设置值之后就不能修改
@@ -297,6 +299,12 @@ class ViewController: UIViewController {
         print(y2! + 10)
     }
     
+    
+    //
+    
+    @objc func btnClicked(sender:UIButton) {
+        
+    }
     
     func demo1() {
         let x = 10
