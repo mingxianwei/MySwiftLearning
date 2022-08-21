@@ -72,9 +72,39 @@ import UIKit
              print("\(i)")
          }
     
+ 5、 数组定义
+        let array2 = ["张三","lisi","wangwu",18] as [Any]
+    数字的合并
+        
+ 
+ 6、 字典定义
+     let dic = ["name":"张三","age":18] as [String : Any]
+ 
+ 7、 Swift 中 函数定义
+         定义一个 两个Int 型参数，返回值为Int 的函数
+        func  demo (x:Int ,y:Int) -> Int {
+                // 函数代码
+         }
+    Swift 中 函数本身可以做为参数来传递   let r1 = demo ;  r1(x:10,y:10) 同样可以调用这个函数
+ 
+ 
+ 8、闭包 和Block
+ 
+     
  */
 
 
+
+
+/*
+ 
+ 9、 Swift 中循环引用的解决方案，
+    OC 中使用 __weak  typeOf(self) weakSelf = self;
+    Swift 中使用  weak var weakSelf = self;
+ 
+    但是在Swift 中更常用以下方法
+ 
+ */
 
 
 class ViewController: UIViewController {
@@ -83,24 +113,110 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
-        arrayDemo()
-    }
+        //arrayDemo()
+        //
+        dicDemo()
         
+      let result  = maxOfSum(x: 10, y: 10)
+        print(result)
+    
+      let result2 = maxOfSum2(number1: 10, number2: 10)
+        print(result2)
+        
+        /**定义闭包的形式*/
+        let  sumFunc = {
+            (x:Int, y: Int) -> Int
+            in
+            return x+y
+        }
+        
+        let result3 = sumFunc(10,100)
+        print(result3)
+        
+        /** 类似OC中的方法来解决循环引用*/
+        weak var weakSwlf = self
+        loadData {(htmlString:String) -> () in
+            weakSwlf?.title = htmlString
+            print(htmlString)
+        }
+        
+        /**[weak self] 表示闭包中的self 均为 弱引用，如果self 被释放则 弱引用的self 被置为nil**/
+        loadData { [weak self] htmlString in
+            self?.title = htmlString
+            print(htmlString)
+        }
+        
+        /* 表示闭包内部的self 均不被强引用，但是如果self 被置为nil  则闭包中的内容会发生野指针错误**/
+        loadData { [unowned self] htmlString in
+            print(htmlString)
+            self.title = htmlString
+        }
+        
+    }
+    
+    
+    //MARK: - === 写一个带有闭包参数的函数 ===
+    func loadData (finsed:(String) -> Void) -> (){
+        finsed("你好")
+    }
+    
+    
+    //MARK: - === 函数 ===
+        
+    //MARK: === Swift 中函数写法1 ===   两个参数 一个返回值
+    func maxOfSum (x:Int,y:Int) -> Int {
+        return x + y
+    }
+    /** number1 和 number2 被称为外部参数，外部参数 在调用时候可以方便知道这个值的意思，外部参数 在函数闭包中非常重要*/
+    func maxOfSum2 (number1 x :Int,number2 y:Int) -> Int {
+        return x+y
+    }
+    
+    /**函数返回值，有三种形态，
+     第一种  -> Int
+     第二种   -> (Int)
+     第三种  —> Void
+     第四种   没有返回值  ->()    -> (Void)  或者完全省略
+     
+     **/
+    func maxOfSum (number1 x:Int,number2 y:Int) -> (Int) {
+         return x+y
+    }
+    
+    
+    
+    
+    
     
     //MARK: - 字典
-    func dicDemo() {
+    func dicDemo() -> (Void) {
+        /**
+         OC 中使用键值对来定义字典 使用 {}
+         Swift中，使用[] 同样使用键值对来定义字典
+         */
+        var dic = ["name":"张三","age":18] as [String : Any]
+        print(dic)
+        
+        var dic2:[String :Any] = ["name":"王五","number":10]
+        print(dic2)
         
         
+        //遍历数组
+        for (key,value) in dic {
+            print(key,value)
+        }
         
-        
-        
+        for (key,value) in dic2 {
+            dic[key] = value
+        }
+        print(dic)
     }
     
     
         
     //MARK: - 数组
     func arrayDemo() {
-        let array  = ["张三","lisi","wangwu"]
+        var array  = ["张三","lisi","wangwu"] as [Any]
         print(array)
         
         //在swift 5 中如果数组中包含类型不一致 需要在申明时候显式添加  as [Any] 或者是显示声明为 [any]型数组
@@ -112,6 +228,11 @@ class ViewController: UIViewController {
         
         array3.append("zhaoliu")
         array3.append(19)
+        
+        
+        /**数组合并需要关注类型，然后可以直接通过+ 好来合并数组 */
+        array += array2
+        
         
         print("array3.capacity= \(array3.capacity)")
         
@@ -140,7 +261,7 @@ class ViewController: UIViewController {
     }
 
     // MARK: - Demo
-    func viewDemo () {
+    func viewDemo () {0
         
         //分号用来区分一行中两句或者多句代码
         let a = 10;let b = 20
@@ -162,15 +283,15 @@ class ViewController: UIViewController {
         
         // let & var 如何选择。 尽量使用let 定义常量let， 只有在需要时候才定义变量var 这样可以简单调试。
         let x = 10 // 定义常量， 一旦设置值之后就不能修改
-        var y = 10.5 //定义变量，   可以修改
+        let y = 10.5 //定义变量，   可以修改
        // 两个不同类型的变量不可以直接运算 必须强制类型转换
         print(x+Int(y))
         
-        let x1 : Double = 20
+        let _ : Double = 20
         
         //可选项 用？定义
-        var y2: Int? = 10
-        print(y2)
+        let y2: Int? = 10
+        print(y2 ?? 0)
         
         //对可选值y2 进行强行解包，程序员确认一定有值，如果实际没有值就挂掉。
         print(y2! + 10)
@@ -205,11 +326,11 @@ class ViewController: UIViewController {
     
     func demo2() {
         let oName : String? = "张三" ;let oAget : Int? = 18
-        guard let name = oName else {
+        guard oName != nil else {
             print("name 为 nil")
             return
         }
-        guard let age = oAget else {
+        guard oAget != nil else {
             print("age为 nil")
             return
         }
@@ -236,7 +357,7 @@ class ViewController: UIViewController {
     
     // MARK: - ??运算符
     func demo5() {
-        var name1 : String? = "老王"
+        let name1 : String? = "老王"
         
         if let name = name1 {
             print(name + "好！")
@@ -247,7 +368,7 @@ class ViewController: UIViewController {
         }
         
         
-        var name2 :String?
+        let name2 :String? = nil
         print((name2 ?? "") + "好")
         print(name2 ?? "---" + "好")
     }
@@ -313,11 +434,11 @@ class ViewController: UIViewController {
         for i in 0..<10 {
             print("\(i)")
         }
-        
-        
-   
-        
-        
+
     }
+    
+    
+
+    
 }
 
