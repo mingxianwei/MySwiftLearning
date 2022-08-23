@@ -77,11 +77,7 @@ if let name = optionalString {
 
 let nickName: String? = "mingxianwei"
 let fullName: String = "Andrew Ming"
-
 let informalGreeting = "hi \(nickName ?? fullName)"
-
-
-
 var mutipleN: Int = 2
 
 while mutipleN < 100 {
@@ -89,16 +85,31 @@ while mutipleN < 100 {
 }
 
 print("\(mutipleN)")
+
+//  最少执行一次  类似 Do-while;
 var mutipuleM = 2
 repeat {
     mutipuleM *= 2
 } while  mutipuleM < 100
+
 print(mutipuleM)
 
 var total = 0
-for var i in 0..<4 {
+
+//闭区间  运算符   0 <= i  <=4  表示执行 五次
+for i in 0...4 {
     total += i
 }
+
+// 使用range  控制范围
+let range = 0...4
+for i in range {
+    total += i
+    print(total)
+}
+
+// 使用半开区间
+
 
 print(total)
 
@@ -121,9 +132,6 @@ func calculateStatistics(sources: [Int]) ->(min: Int,max: Int,sum: Int,average:F
     var sum:Int = 0
     var  tottal = 0
     var average: Float = 0
-    
-    
-    
     
     for temp in sources {
         if temp > max {
@@ -200,6 +208,25 @@ let sortedNumbers = numbers.sorted(by: {
 })
 print(sortedNumbers)
 
+
+// 元组
+let error = (statuCode: 404,descritipion: "Not Found",Desctrion2: "请检查网络连接")
+print(error.0)
+print(error.1)
+print(error.2)
+
+print(error.statuCode)
+print(error.descritipion)
+print(error.Desctrion2)
+
+//Swift 3.0 去掉了 自增 自减  运算符
+let  selfadd = 10
+
+/*
+selfadd++
+selfadd--
+ */
+print(selfadd)
 
 
 
