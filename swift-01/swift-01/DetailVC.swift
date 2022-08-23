@@ -10,6 +10,8 @@ import UIKit
 class DetailVC: UIViewController {
     
     var person :Person?
+    
+    /// 页面点击保存按钮的回调
     var saveCallback:(() -> ())?
 
     //MARK: - === @IBOutlet ===

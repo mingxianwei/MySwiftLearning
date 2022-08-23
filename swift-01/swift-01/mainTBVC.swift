@@ -9,10 +9,8 @@ import UIKit
 
 class mainTBVC: UITableViewController {
     
-    
     var personArray :[Person]?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData { dataList in
@@ -20,7 +18,6 @@ class mainTBVC: UITableViewController {
             self.personArray = dataList;
             self.tableView.reloadData()
         }
-        
     }
 
     
