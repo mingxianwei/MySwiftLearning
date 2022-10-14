@@ -93,9 +93,6 @@ import UIKit
      
  */
 
-
-
-
 /*
  
  9、 Swift 中循环引用的解决方案，
@@ -308,7 +305,6 @@ class ViewController: UIViewController {
     
     func demo1() {
         let x = 10
-        
         if (x > 20) {
             print("大")
         } else {
@@ -446,6 +442,7 @@ class ViewController: UIViewController {
     }
     
     
+    //MARK: - === <#注释#> ===
 
     
 }
